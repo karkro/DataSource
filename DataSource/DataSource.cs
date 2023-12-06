@@ -7,12 +7,13 @@ namespace DataSource
 {
     public class DatabaseHandler : IDisposable
     {
-        private SqlConnection connection;
+        protected SqlConnection connection;
 
         // Konstruktor klasy, inicjalizuje połączenie na podstawie dostarczonego ciągu połączenia
         public DatabaseHandler(string connectionString)
         {
             connection = new SqlConnection(connectionString);
+            this.OpenConnection();
         }
 
         // Metoda otwierająca połączenie z bazą danych
